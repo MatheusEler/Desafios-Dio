@@ -1,0 +1,38 @@
+public class Quitanda {
+
+	public static void main(String[] args) {
+		/*
+		 * Se o cliente comprar mais de 8 Kg em frutas ou o valor total da compra ultrapassar R$ 25,00,
+		 *  receberá ainda um desconto de 10% sobre este total. Escreva um algoritmo para ler a quantidade (em Kg) de morangos e a quantidade (em Kg) 
+		 *  de maças adquiridas e escreva o valor a ser pago pelo cliente.
+		 */
+		Scanner in = new Scanner(System.in);
+
+		int morango, maca;
+		double desc;
+		double valor=0;
+		morango = in.nextInt();
+		maca = in.nextInt();
+		int auxKg=morango + maca;
+
+		if (auxKg > 8 && maca <=5 && morango <=5 ) {
+			valor = morango * 2.50 + maca * 1.80;
+			desc = valor * 0.10;
+			valor = valor - desc;
+		}else if( auxKg > 8 && maca >5 && morango >5) {
+			valor = morango * 2.20 + maca * 1.50;
+			desc = valor * 0.10;
+			valor = valor - desc;
+		}else if (maca > 5 && morango < 5 && auxKg < 8) {
+			valor = morango * 2.50 + maca * 1.50;	
+		}else if (maca < 5 && morango > 5 && auxKg < 8) {
+			valor = morango * 2.20 + maca * 1.80;
+		}else if ( morango <=5 && maca <= 5 && auxKg <8) {
+			valor = morango * 2.50 + maca * 1.80;
+		}
+		
+		System.out.println(valor);
+
+	}
+
+}
